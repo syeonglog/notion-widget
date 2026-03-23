@@ -1,0 +1,89 @@
+/* 기본 리셋 (노션 필수) */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F8F6; /* 중요 ⭐ */
+    overflow: hidden; /* 스크롤 제거 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* 컨테이너 */
+.clock-container {
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    max-width: 190px;
+}
+
+/* 버튼 영역 */
+.top-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.top-button button {
+    aspect-ratio: 1 / 1;
+    border: none;
+    background-color: #EFE9E3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.top-button button:hover {
+    background-color: #e6ded6;
+    transform: translateY(-1px);
+}
+
+img {
+    width: 13px;
+    margin-top: 3.5px;
+}
+
+/* 날짜 */
+#date {
+    font-size: 12px;
+    color: #54473F;
+    margin-bottom: 6px;
+}
+
+/* 시간 */
+#time {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #C9B59C;
+}
+
+/* 메시지 */
+.message-box {
+    background:linear-gradient(
+        135deg,
+        #eff0f4,
+        #f7f6f6
+    );
+    border-radius: 10px;
+    padding: 10px;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeSlideDown 0.6s ease forwards;
+}
+
+#message {
+    font-size: 12px;
+    color: #957C62;
+}
+
+/* keyframes */
+@keyframes fadeSlideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
