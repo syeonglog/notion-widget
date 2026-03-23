@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Emoji Calendar</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 상단 입력 영역 -->
+    <div class="inputBox">
+
+        <!-- 날짜 선택 -->
+        <div class="dateHeader">
+            <div id="selectedDate">
+                <div id="datefont"></div>
+            </div>
+            <div id="calendarIcon">
+                <img src="calendaricon.png">
+            </div>
+            <input type="date" id="datePicker">
+        </div>
+
+        <!-- 입력 -->
+        <div class="inputArea">
+            <input id="emojiInput">
+            <div class="rightArea">
+                <div id="comment">오늘의 이모지</div>
+                <button id="saveBtn">저장</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 월 이동 -->
+    <div class="monthNav">
+        <button id="prevBtn">◀</button>
+        <span id="monthText"></span>
+        <button id="nextBtn">▶</button>
+    </div>
+
+    <!-- 달력 -->
+    <div id="calendar"></div>
+
+</div>
+
+<!-- 툴팁 -->
+<div id="tooltip"></div>
+
+<script src="./script.js"></script>
+
+</body>
+</html>

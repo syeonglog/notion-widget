@@ -1,0 +1,187 @@
+body{
+    margin:0;
+    font-family:sans-serif;
+    background-color: #F9F8F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    padding: 20px;
+}
+
+/* 상단 입력 영역 - 날짜 입력 */
+.dateHeader{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    /* margin-bottom:10px; */
+    /* padding: 20px 20px 0px 20px; */
+    /* background-color: #F5AFAF; */
+}
+
+#selectedDate {
+    background-color: #fff;
+    border: 1px solid #D9CFC7;
+    padding: 3px 3px 3px 10px;
+    margin: 10px 10px 18px 10px;
+    border-radius: 10px;
+    min-width: 120px;
+    min-height: 20px;
+}
+
+#datefont {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+img {
+    width: 17px;
+    /* margin-top: -30px; */
+}
+
+#datePicker {
+    cursor:pointer;
+    position:absolute;
+    opacity:0;
+    /* pointer-events:none; */
+}
+
+#calendarIcon {
+    cursor:pointer;
+    margin-top: -4px;
+}
+
+/* 상단 입력 영역 - 입력 */
+.inputArea{
+    display:flex;
+    /* align-items: center; */
+    justify-content: space-around;
+    background:linear-gradient(
+        135deg,
+        #eff0f4,
+        #f7f6f6
+        );
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#emojiInput {
+    /* background-color: #fff; */
+    background-color: transparent;
+    border: transparent;
+    width: 43px;
+    font-size: 30px;
+    margin-left: -5px;
+    /* background-color: #222; */
+}
+
+#emojiInput:focus{
+    outline: none;
+}
+
+.rightArea {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    /* margin-right: 10px; */
+    /* background-color: #fff; */
+}
+
+#comment {
+    color: #8c827c;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#saveBtn {
+    padding:6px 10px;
+    background-color: #705C53;
+    cursor:pointer;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    width: 60px;
+}
+
+#today {
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+/* 월 이동 및 달력 */
+.monthNav {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.monthNav>button {
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    color: #C9B59C;
+}
+
+#monthText {
+    color: #685752;
+    font-size: 13px;
+}
+
+#calendar{
+    margin-top:10px;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap: 7px;
+}
+
+.day{
+    aspect-ratio: 1 / 1;
+    width: 25px;
+    /* padding: 1px; */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    border-radius:7px;
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    transition:0.15s;
+    font-size: 15px;
+}
+
+.day:hover{
+    transform:translateY(-3px);
+}
+
+.today {
+    background: #C9B59C;
+}
+
+.selected {
+    background: #EFE9E3;
+}
+
+.other-month {
+    opacity: 0.35;
+}
+
+/* 툴팁 */
+#tooltip{
+    position:absolute;
+    background:#C9B59C;
+    color:white;
+    padding:6px 10px;
+    font-size:12px;
+    border-radius:6px;
+    pointer-events:none;
+    opacity:0;
+    transition:0.15s;
+}
+
