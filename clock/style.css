@@ -14,7 +14,7 @@ body {
     padding: 40px;
     text-align: center;
     position: relative;
-    max-width: 190px;
+    max-width: 200px;
 }
 
 /* 버튼 영역 */
@@ -76,7 +76,7 @@ img {
 }
 
 #message {
-    font-size: 15px;
+    font-size: 14px;
     color: #957C62;
 }
 
