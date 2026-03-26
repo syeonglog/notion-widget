@@ -1,6 +1,9 @@
 /* 기본 리셋 (노션 필수) */
 body {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +18,7 @@ body {
     text-align: center;
     position: relative;
     max-width: 200px;
+    background-color: #54473F;
 }
 
 /* 버튼 영역 */
