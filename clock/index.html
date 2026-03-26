@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>디지털 시계</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="clock-container">
+
+        <!-- 오른쪽 상단 버튼 영역 -->
+        <div class="top-button">
+            <button id="toggleFormat">
+                <img src="clock.png">
+            </button>
+        </div>
+
+        <!-- 날짜 -->
+        <div id="date"></div>
+
+        <!-- 시간 -->
+        <div id="time"></div>
+
+        <!-- 메시지 -->
+        <div class="message-box">
+            <div id="message"></div>
+        </div>
+
+        <!-- 세계 시간 -->
+        <div class="world-time">
+            <div class="world-clock">
+                <div class="city">NYC</div>
+                <div class="KR">뉴욕</div>
+                <div class="time" id="NYC-time"></div>
+            </div>
+
+            <div class="world-clock">
+                <div class="city">LON</div>
+                <div class="KR">런던</div>
+                <div class="time" id="LON-time"></div>
+            </div>
+
+            <div class="world-clock">
+                <div class="city">TYO</div>
+                <div class="KR">도쿄</div>
+                <div class="time" id="TYO-time"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
