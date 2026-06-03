@@ -19,15 +19,15 @@ body {
 
     padding: 15px;
 
-    background: #F0E2D0;
-    color: #BFA28C;
+    background: #F1F7D4;
+    color: #9FCBAD;
     text-align: center;
 
-    border: 4px solid #BFA28C;
+    border: 4px solid #9FCBAD;
     border-radius: 0;
 
     box-shadow:
-        4px 4px 0 #BFA28C,
+        4px 4px 0 #9FCBAD,
         8px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -85,12 +85,12 @@ body {
     height: 38px;
 
     background: white;
-    color: #BFA28C;
+    color: #9FCBAD;
 
-    border: 3px solid #BFA28C;
+    border: 3px solid #9FCBAD;
     border-radius: 0;
 
-    box-shadow: 3px 3px 0 #BFA28C;
+    box-shadow: 3px 3px 0 #9FCBAD;
 
     cursor: pointer;
 }
