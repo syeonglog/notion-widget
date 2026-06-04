@@ -98,3 +98,12 @@ body {
 .controls button:hover {
     transform: scale(1.1);
 }
+
+/* 모바일 노션 앱의 유튜브 링크 자동 이동 현상 때문에 gif로 전환 .. */
+
+.gif-wrapper img {
+    width: 100%;
+    display: block;
+
+    border-radius: 10px;
+}
