@@ -58,11 +58,11 @@ input {
     outline: none;
     transition: all 0.2s ease;
     font-family: "Galmuri9", monospace;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 input::placeholder {
-    font-size: 11px;
+    font-size: 12px;
     font-family: "Pixelify Sans", sans-serif;
 }
 
@@ -103,7 +103,7 @@ input::placeholder {
 
 .memo-text {
     flex: 1;
-    font-size: 11px;
+    font-size: 12px;
     text-align: left;
     color: #8A5F41;
     cursor: pointer;
