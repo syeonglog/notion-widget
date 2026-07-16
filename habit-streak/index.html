@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Streak Widget</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="widget">
+
+    <div class="widget-header">
+      <div class="widget-title-group">
+        <span class="widget-title">Selfcarehoilc</span>
+        <span class="widget-subtitle">DREAM BIG but take small steps every day.</span>
+      </div>
+        <button class="reset-all-btn">↺</button>
+    </div>
+
+    <!-- Habit 1 -->
+    <div class="habit" data-id="toeic">
+      <div class="habit-left">
+        <span class="habit-name">Career Study</span>
+
+        <div class="stats">
+          <span class="stats-chip">
+            <span class="emoji">🧋</span>
+            <span class="streak">0</span>
+          </span>
+
+          <span class="stats-chip">
+            <span class="emoji">🧸</span>
+            <span class="total">0</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="habit-actions">
+        <button class="check-btn" title="오늘 체크">○</button>
+      </div>
+
+      <span class="floating-text"></span>
+    </div>
+
+    <!-- Habit 2 -->
+    <div class="habit" data-id="java">
+      <div class="habit-left">
+        <span class="habit-name">Home Workout</span>
+        <div class="stats">
+          <span class="stats-chip">
+            <span class="emoji">🧋</span>
+            <span class="streak">0</span>
+          </span>
+
+          <span class="stats-chip">
+            <span class="emoji">🧸</span>
+            <span class="total">0</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="habit-actions">
+        <button class="check-btn" title="오늘 체크">○</button>
+      </div>
+
+      <span class="floating-text"></span>
+    </div>
+
+    <!-- Habit 3 -->
+    <div class="habit" data-id="exercise">
+      <div class="habit-left">
+        <span class="habit-name">Daily Journal (Any Way)</span>
+        <div class="stats">
+          <span class="stats-chip">
+            <span class="emoji">🧋</span>
+            <span class="streak">0</span>
+          </span>
+
+          <span class="stats-chip">
+            <span class="emoji">🧸</span>
+            <span class="total">0</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="habit-actions">
+        <button class="check-btn" title="오늘 체크">○</button>
+      </div>
+
+      <span class="floating-text"></span>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
