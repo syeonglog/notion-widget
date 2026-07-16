@@ -1,6 +1,10 @@
 const habits = document.querySelectorAll(".habit");
 const resetAllBtn = document.querySelector(".reset-all-btn");
 
+let waitingReset = false;
+let countdown = 3;
+let countdownTimer = null;
+
 function getToday() {
     return new Date().toISOString().split("T")[0];
 }
@@ -117,17 +121,40 @@ habits.forEach(habit => {
 
 resetAllBtn.addEventListener("click", () => {
 
-    if (!confirm("모든 습관을 초기화하시겠습니까?"))
+    // 카운트다운 중 다시 누르면 초기화
+    if (waitingReset) {
+
+        clearInterval(countdownTimer);
+
+        habits.forEach(habit => {
+            localStorage.removeItem(habit.dataset.id);
+        });
+
+        location.reload();
         return;
+    }
 
-    habits.forEach(habit => {
+    // 첫 클릭
+    waitingReset = true;
+    countdown = 3;
 
-        const id = habit.dataset.id;
+    resetAllBtn.textContent = countdown;
+    resetAllBtn.title = "다시 누르면 초기화";
 
-        localStorage.removeItem(id);
+    countdownTimer = setInterval(() => {
 
-    });
+        countdown--;
 
-    location.reload();
+        if (countdown > 0) {
+            resetAllBtn.textContent = countdown;
+        } else {
+            clearInterval(countdownTimer);
+
+            waitingReset = false;
+            resetAllBtn.textContent = "↺";
+            resetAllBtn.title = "";
+        }
+
+    }, 1000);
 
 });
