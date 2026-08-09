@@ -1,6 +1,20 @@
 // ----------------
 //     DOM 요소
 // ----------------
+
+// ----------------
+//    Supabase
+// ----------------
+const supabaseUrl = "https://mlvbqllykkqakthcskef.supabase.co";
+const supabaseKey = "sb_publishable_0mD3ijnurE5FHXo005lAKQ_2W3tZyXg";
+
+const supabaseClient = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+const TABLE_NAME = "emoji_calendar";
+
 const calendar = document.getElementById("calendar");
 const emojiInput = document.getElementById("emojiInput");
 const saveBtn = document.getElementById("saveBtn");
@@ -20,8 +34,9 @@ let currentMonth = currentDate.getMonth();
 
 let selectedDate = new Date(); // 입력 기준 날짜
 
-/* localStorage에서 데이터 로드 */
-let data = JSON.parse(localStorage.getItem("emojiCalendar")) || {};
+// Supabase에서 불러온 데이터를
+// 기존 달력 코드가 사용하는 객체 형태로 저장
+let data = {};
 
 
 // ==================
@@ -47,9 +62,78 @@ function updateInputValue(){
     emojiInput.value = data[key] || "";
 }
 
-// 데이터 저장
-function saveData(){
-    localStorage.setItem("emojiCalendar", JSON.stringify(data));
+// ==================
+//   Supabase 데이터
+// ==================
+
+// DB의 날짜 형식을 기존 객체의 key 형식으로 변환
+function makeKey(date) {
+    const [y, m, d] = date.split("-");
+    return `${Number(y)}-${Number(m)}-${Number(d)}`;
+}
+
+// Supabase → 기존 data 객체로 변환
+async function loadData() {
+    const { data: rows, error } = await supabaseClient
+        .from(TABLE_NAME)
+        .select("id, date, emoji, created_at");
+
+    if (error) {
+        console.error("데이터 불러오기 실패:", error);
+        return;
+    }
+
+    data = {};
+
+    rows.forEach(row => {
+        const key = makeKey(row.date);
+        data[key] = row.emoji;
+    });
+
+    updateInputValue();
+    render();
+}
+
+// 기존 data 객체 → Supabase 행으로 저장
+async function saveData(date, emoji) {
+
+    const { data: existing, error: selectError } = await supabaseClient
+        .from(TABLE_NAME)
+        .select("id")
+        .eq("date", date)
+        .maybeSingle();
+
+    if (selectError) {
+        console.error("기존 데이터 확인 실패:", selectError);
+        return;
+    }
+
+    // 이미 해당 날짜의 데이터가 있으면 수정
+    if (existing) {
+
+        const { error } = await supabaseClient
+            .from(TABLE_NAME)
+            .update({ emoji: emoji })
+            .eq("id", existing.id);
+
+        if (error) {
+            console.error("데이터 수정 실패:", error);
+        }
+
+    // 없으면 새로 추가
+    } else {
+
+        const { error } = await supabaseClient
+            .from(TABLE_NAME)
+            .insert({
+                date: date,
+                emoji: emoji
+            });
+
+        if (error) {
+            console.error("데이터 저장 실패:", error);
+        }
+    }
 }
 
 
@@ -193,17 +277,22 @@ calendarIcon.addEventListener("click",()=>{
 });
 
 // 저장 버튼
-saveBtn.addEventListener("click",()=>{
+saveBtn.addEventListener("click", async () => {
     const emoji = emojiInput.value;
-    if(!emoji) return;
+    if (!emoji) return;
 
     const y = selectedDate.getFullYear();
-    const m = selectedDate.getMonth()+1;
-    const d = selectedDate.getDate();
-    const key = `${y}-${m}-${d}`;
+    const m = String(selectedDate.getMonth() + 1).padStart(2, "0");
+    const d = String(selectedDate.getDate()).padStart(2, "0");
 
+    const date = `${y}-${m}-${d}`;
+    const key = `${y}-${Number(m)}-${Number(d)}`;
+
+    // 화면에서 바로 보이도록 객체에도 저장
     data[key] = emoji;
-    saveData();
+
+    // Supabase에 저장
+    await saveData(date, emoji);
 
     emojiInput.value = "";
     updateInputValue();
@@ -251,5 +340,5 @@ document.getElementById("nextBtn").addEventListener("click",()=>{
 //     초기 실행
 // ==================
 updateSelectedDate();
-updateInputValue();
 render();
+loadData();
