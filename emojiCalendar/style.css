@@ -1,16 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body{
-    margin:0;
     font-family: "Courier Prime", monospace;
     background-color: #FCF8F8;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .container{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 22px;
 }
 
