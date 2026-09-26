@@ -113,7 +113,8 @@ img {
 
 #saveBtn {
     padding:7px 12px;
-    background-color: #7D5A5A;
+    /* background-color: #7D5A5A; */
+    background-color: #E7D3D3;
     cursor:pointer;
     border: none;
     border-radius: 15px;
@@ -177,7 +178,7 @@ img {
 }
 
 .today {
-    background: #F9DFDF;
+    background: #F6F0F0;
 }
 
 .selected {
