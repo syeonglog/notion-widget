@@ -135,3 +135,7 @@ input::placeholder {
     opacity: 1;
     visibility: visible;
 }
+
+#addBtn, .delete-btn {
+    flex-shrink: 0;
+}
